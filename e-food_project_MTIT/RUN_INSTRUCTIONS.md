@@ -11,8 +11,12 @@ To get the entire microservice architecture and all frontends running, you will 
 **Command:**
 ```cmd
 cd api-gateway
-node index.js
+npm run dev
 ```
+
+### 📖 API Documentation (Swagger)
+Once the API Gateway is running, you can access the centralized Swagger UI documentation for all microservices at:
+👉 **[http://localhost:5010/api-docs](http://localhost:5010/api-docs)**
 
 ---
 
