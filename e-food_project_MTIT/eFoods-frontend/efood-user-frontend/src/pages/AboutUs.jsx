@@ -5,8 +5,8 @@ import samindi from '../assets/samindi.png';
 import sandeepa from '../assets/sandeepa.png';
 import hasini from '../assets/hasini.png';
 import geethika from '../assets/geethika.png';
-import keerthana from '../assets/keerthana.jpg';
-import harshi from '../assets/harshi.jpg';
+import keerthana from '../assets/keerthana.jpeg';
+import harshi from '../assets/harshi.jpeg';
 
 import UserNavBar from '../components/userNavBar';
 import Footer from '../components/Footer';
