@@ -1,0 +1,37 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "MERN based Food ordering system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SE-3Y1S-Microservices-Group-Project/efoods-online-food-ordering-and-delivery-management-system.git"
+  },
+  "author": "NerandaDilhara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SE-3Y1S-Microservices-Group-Project/efoods-online-food-ordering-and-delivery-management-system/issues"
+  },
+  "homepage": "https://github.com/SE-3Y1S-Microservices-Group-Project/efoods-online-food-ordering-and-delivery-management-system#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^4.21.2",
+    "file-saver": "^2.0.5",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.13.0",
+    "multer": "^1.4.5-lts.2",
+    "nodemon": "^3.1.9",
+    "react-csv": "^2.2.2",
+    "react-data-table-component": "^7.7.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "xlsx": "^0.18.5"
+  }
+}

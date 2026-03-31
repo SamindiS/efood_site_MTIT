@@ -1,0 +1,15 @@
+🌿 Global Reset & Base
+* {
+  margin: 6;
+  padding: 6;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(145deg, #ecfdf5, #f7fff9);
+  color: #1a3e2e;
+  min-height: 100vh;
+  line-height: 1.6;
+}

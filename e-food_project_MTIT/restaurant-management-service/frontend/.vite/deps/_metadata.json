@@ -1,0 +1,97 @@
+{
+  "hash": "5d390710",
+  "configHash": "182a35b2",
+  "lockfileHash": "531feae0",
+  "browserHash": "08f338e3",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "6f7888bd",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "f2e0f693",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.mjs",
+      "file": "react-router-dom.js",
+      "fileHash": "5a63715e",
+      "needsInterop": false
+    },
+    "react-icons/fa": {
+      "src": "../../node_modules/react-icons/fa/index.mjs",
+      "file": "react-icons_fa.js",
+      "fileHash": "2df94421",
+      "needsInterop": false
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "930cc46f",
+      "needsInterop": false
+    },
+    "react-data-table-component": {
+      "src": "../../node_modules/react-data-table-component/dist/index.es.js",
+      "file": "react-data-table-component.js",
+      "fileHash": "996f2833",
+      "needsInterop": false
+    },
+    "react-csv": {
+      "src": "../../node_modules/react-csv/src/index.js",
+      "file": "react-csv.js",
+      "fileHash": "0fdaa33d",
+      "needsInterop": false
+    },
+    "jspdf": {
+      "src": "../../node_modules/jspdf/dist/jspdf.es.min.js",
+      "file": "jspdf.js",
+      "fileHash": "5ac02d3b",
+      "needsInterop": false
+    },
+    "jspdf-autotable": {
+      "src": "../../node_modules/jspdf-autotable/dist/jspdf.plugin.autotable.mjs",
+      "file": "jspdf-autotable.js",
+      "fileHash": "5bbda6b1",
+      "needsInterop": false
+    },
+    "lucide-react": {
+      "src": "../../node_modules/lucide-react/dist/esm/lucide-react.js",
+      "file": "lucide-react.js",
+      "fileHash": "0b9de1ff",
+      "needsInterop": false
+    },
+    "country-state-city": {
+      "src": "../../node_modules/country-state-city/lib/index.js",
+      "file": "country-state-city.js",
+      "fileHash": "8b2a723a",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "html2canvas.esm-QD4VTXJF": {
+      "file": "html2canvas__esm-QD4VTXJF.js"
+    },
+    "purify.es-3DHBJXH2": {
+      "file": "purify__es-3DHBJXH2.js"
+    },
+    "index.es-LEKNRXPR": {
+      "file": "index__es-LEKNRXPR.js"
+    },
+    "chunk-V7Q5AG4B": {
+      "file": "chunk-V7Q5AG4B.js"
+    },
+    "chunk-TRFV7W5R": {
+      "file": "chunk-TRFV7W5R.js"
+    },
+    "chunk-4IG3CPVY": {
+      "file": "chunk-4IG3CPVY.js"
+    },
+    "chunk-DC5AMYBS": {
+      "file": "chunk-DC5AMYBS.js"
+    }
+  }
+}

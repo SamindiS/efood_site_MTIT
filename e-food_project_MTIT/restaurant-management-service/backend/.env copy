@@ -1,0 +1,8 @@
+PORT=5000
+# MONGO_URI=mongodb+srv://sasin00:efoods1234@efoods.se4qn.mongodb.net/restaurantServiceDB?retryWrites=true&w=majority&appName=eFoods
+
+MONGO_URI=mongodb+srv://nerandadilhara:WOOokB4DSzGbnPIe@efoods.1xnqrs9.mongodb.net/?retryWrites=true&w=majority&appName=eFoods
+
+JWT_SECRET=somesecretkey
+
+JWT_EXPIRES_IN=100d
