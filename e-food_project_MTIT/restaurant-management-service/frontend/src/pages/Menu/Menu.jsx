@@ -25,7 +25,7 @@ export default function Menu() {
 
   // const fetchMenuItems = async () => {
   //   try {
-  //     const res = await axios.get('http://localhost:5000/api/menu');
+  //     const res = await axios.get('http://localhost:5010/restaurant-service/api/menu');
   //     setMenuItems(res.data);
   //     setLoading(false);
   //   } catch (err) {
@@ -40,7 +40,7 @@ export default function Menu() {
       const restaurantId = localStorage.getItem('restaurantId');
       // alert(localStorage.getItem('restaurantName')); 
 
-      const res = await axios.get(`http://localhost:5000/api/menu?restaurantId=${restaurantId}`, {
+      const res = await axios.get(`http://localhost:5010/restaurant-service/api/menu?restaurantId=${restaurantId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -56,7 +56,7 @@ export default function Menu() {
     e.stopPropagation();
     if (window.confirm(`Are you sure you want to delete "${item.name}"?`)) {
       try {
-        await axios.delete(`http://localhost:5000/api/menu/${item._id}`, {
+        await axios.delete(`http://localhost:5010/restaurant-service/api/menu/${item._id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -243,7 +243,7 @@ export default function Menu() {
                   <div className="relative">
                     {item.image?.[0] ? (
                       <img
-                        src={`http://localhost:5000${item.image[0]}`}
+                        src={`http://localhost:5010/restaurant-service${item.image[0]}`}
                         alt={item.name}
                         className="w-full h-52 object-cover transition duration-300 group-hover:scale-105"
                       />
@@ -353,7 +353,7 @@ export default function Menu() {
               <div className="flex flex-col md:flex-row gap-6">
                 {selectedItem.image?.[0] ? (
                   <img
-                    src={`http://localhost:5000${selectedItem.image[0]}`}
+                    src={`http://localhost:5010/restaurant-service${selectedItem.image[0]}`}
                     alt={selectedItem.name}
                     className="w-full md:w-1/3 h-64 object-cover rounded-lg"
                   />

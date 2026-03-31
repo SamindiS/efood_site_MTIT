@@ -103,7 +103,7 @@ const Dashboard = () => {
 
       // Try to fetch from API first
       try {
-        const response = await fetch('http://localhost:5002/api/drivers/orders', {
+        const response = await fetch('http://localhost:5010/delivery-service/api/drivers/orders', {
           headers
         });
 

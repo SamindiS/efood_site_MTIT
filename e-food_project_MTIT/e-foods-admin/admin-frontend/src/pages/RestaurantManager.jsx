@@ -206,7 +206,7 @@ const RestaurantManager = () => {
                                         <div className="flex items-center gap-4">
                                             <div className="w-14 h-14 rounded-2xl bg-slate-800 border border-slate-700 flex-shrink-0 flex items-center justify-center text-white font-black overflow-hidden relative">
                                                 {res.image && res.image[0] ? (
-                                                    <img src={`http://localhost:5000${res.image[0]}`} alt={res.name} className="w-full h-full object-cover" />
+                                                    <img src={`http://localhost:5010/restaurant-service${res.image[0]}`} alt={res.name} className="w-full h-full object-cover" />
                                                 ) : res.name.substring(0, 2).toUpperCase()}
                                                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                                                     <Edit2 className="w-4 h-4 text-white" />

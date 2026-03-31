@@ -28,7 +28,7 @@ export const MenuProvider = ({ children }) => {
       }
 
       const token = localStorage.getItem('token');
-      const response = await axios.get(`http://localhost:5000/api/menu/restaurant/${restaurantId}`, {
+      const response = await axios.get(`http://localhost:5010/restaurant-service/api/menu/restaurant/${restaurantId}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -55,7 +55,7 @@ export const MenuProvider = ({ children }) => {
       
       formData.append('restaurantId', restaurantId);
 
-      const response = await axios.post('http://localhost:5000/api/menu/', formData, {
+      const response = await axios.post('http://localhost:5010/restaurant-service/api/menu/', formData, {
         headers: { 
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${token}`
@@ -83,7 +83,7 @@ export const MenuProvider = ({ children }) => {
       
       formData.append('restaurantId', restaurantId);
 
-      const response = await axios.put(`http://localhost:5000/api/menu/${id}`, formData, {
+      const response = await axios.put(`http://localhost:5010/restaurant-service/api/menu/${id}`, formData, {
         headers: { 
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${token}`
@@ -108,7 +108,7 @@ export const MenuProvider = ({ children }) => {
     try {
       setLoading(true);
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/menu/${id}`, {
+      await axios.delete(`http://localhost:5010/restaurant-service/api/menu/${id}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

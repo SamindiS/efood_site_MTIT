@@ -8,7 +8,7 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await axios.post('http://localhost:5001/api/users/register', form)
+    await axios.post('http://localhost:5010/order-service/api/users/register', form)
     alert('Registered successfully!')
     navigate('/login')
   }

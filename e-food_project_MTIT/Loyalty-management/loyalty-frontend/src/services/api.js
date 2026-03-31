@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:5005/api';
+const BASE_URL = 'http://localhost:5010/loyalty-service/api';
 
 export const loyaltyService = {
     validatePromo: async (code) => {

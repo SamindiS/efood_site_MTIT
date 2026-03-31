@@ -11,7 +11,7 @@ const RevenueTable = () => {
 
   const fetchRevenueData = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/dashboard/stats', {
+      const res = await axios.get('http://localhost:5010/restaurant-service/api/dashboard/stats', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }

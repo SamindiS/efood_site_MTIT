@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const APIres = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: 'http://localhost:5010/restaurant-service',
   headers: {
     'Content-Type': 'application/json',
   },

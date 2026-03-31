@@ -19,7 +19,7 @@ export default function Restaurant() {
 
   const fetchRestaurants = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/restaurants');
+      const res = await axios.get('http://localhost:5010/restaurant-service/api/restaurants');
       setRestaurants(res.data);
       setLoading(false);
     } catch (err) {
@@ -29,7 +29,7 @@ export default function Restaurant() {
 
   const deleteRestaurant = async (id) => {
     if (window.confirm('Are you sure you want to delete this restaurant?')) {
-      await axios.delete(`http://localhost:5000/api/restaurants/${id}`);
+      await axios.delete(`http://localhost:5010/restaurant-service/api/restaurants/${id}`);
       fetchRestaurants();
     }
   };

@@ -42,7 +42,7 @@ export default function Dashboard() {
   const fetchStats = async () => {
     try {
       const restaurantId = localStorage.getItem('restaurantId');
-      const res = await axios.get(`http://localhost:5000/api/dashboard/stats?restaurantId=${restaurantId}`);
+      const res = await axios.get(`http://localhost:5010/restaurant-service/api/dashboard/stats?restaurantId=${restaurantId}`);
       setStats(res.data.stats);
       setRevenueByDay(res.data.revenueByDay);
     } catch (err) {

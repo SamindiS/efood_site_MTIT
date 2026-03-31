@@ -17,7 +17,7 @@ export default function Restaurant() {
 
   const fetchMyRestaurant = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/restaurants/me', {
+      const res = await axios.get('http://localhost:5010/restaurant-service/api/restaurants/me', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setRestaurant(res.data);
@@ -31,7 +31,7 @@ export default function Restaurant() {
   const handleDelete = async () => {
     if (window.confirm('Are you sure you want to delete your restaurant?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/restaurants/${restaurant._id}`, {
+        await axios.delete(`http://localhost:5010/restaurant-service/api/restaurants/${restaurant._id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         alert('Restaurant deleted successfully');
@@ -47,7 +47,7 @@ export default function Restaurant() {
   const handleToggleAvailability = async () => {
     try {
       const updated = await axios.put(
-        `http://localhost:5000/api/restaurants/${restaurant._id}/availability`,
+        `http://localhost:5010/restaurant-service/api/restaurants/${restaurant._id}/availability`,
         { isAvailable: !restaurant.isAvailable },
         {
           headers: {
@@ -111,7 +111,7 @@ export default function Restaurant() {
     }
     
     if (restaurant.image && restaurant.image.length > 0) {
-      return `http://localhost:5000${restaurant.image[0]}`;
+      return `http://localhost:5010/restaurant-service${restaurant.image[0]}`;
     }
     
     return 'https://via.placeholder.com/800x400?text=No+Image+Available';

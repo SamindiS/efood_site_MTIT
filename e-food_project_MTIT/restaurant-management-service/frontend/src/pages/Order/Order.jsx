@@ -19,7 +19,7 @@ export default function Order() {
 
       if (!restaurantId) return;
 
-      const res = await axios.get(`http://localhost:5001/api/orders/restaurant/${restaurantId}`);
+      const res = await axios.get(`http://localhost:5010/order-service/api/orders/restaurant/${restaurantId}`);
       setOrders(res.data);
       setLoading(false);
     } catch (err) {
@@ -34,7 +34,7 @@ export default function Order() {
 
   // const fetchOrders = async() =>{
   //   try{
-  //     const res = await axios.get('http://localhost:5000/api/orders');
+  //     const res = await axios.get('http://localhost:5010/restaurant-service/api/orders');
   //     setOrders(res.data);
   //     setLoading(true);
   //   }catch(err){
@@ -44,7 +44,7 @@ export default function Order() {
 
   const updateStatus = async (orderId, status) => {
     try {
-      await axios.put(`http://localhost:5001/api/orders/${orderId}/status`, { status });
+      await axios.put(`http://localhost:5010/order-service/api/orders/${orderId}/status`, { status });
       fetchOrders();
     } catch (err) {
       console.error('Error updating order status:', err);

@@ -16,8 +16,8 @@ export default function OrderForm({ onClose, onSuccess }) {
 
   useEffect(() => {
     async function fetchData() {
-      const resRestaurants = await axios.get('http://localhost:5000/api/restaurants')
-      const resMenu = await axios.get('http://localhost:5000/api/menu')
+      const resRestaurants = await axios.get('http://localhost:5010/restaurant-service/api/restaurants')
+      const resMenu = await axios.get('http://localhost:5010/restaurant-service/api/menu')
       setRestaurants(resRestaurants.data)
       setMenuItems(resMenu.data)
     }
@@ -49,7 +49,7 @@ export default function OrderForm({ onClose, onSuccess }) {
     e.preventDefault()
     const totalAmount = formData.items.reduce((sum, item) => sum + (item.price * item.quantity), 0)
     try {
-      await axios.post('http://localhost:5000/api/orders', { ...formData, totalAmount })
+      await axios.post('http://localhost:5010/restaurant-service/api/orders', { ...formData, totalAmount })
       alert('Order created!')
       onSuccess()
       onClose()

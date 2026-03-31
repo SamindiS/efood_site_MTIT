@@ -1,0 +1,58 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "eFoods Central API Gateway",
+    "version": "1.0.0",
+    "description": "Centralized Swagger Documentation for all Microservices"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5010",
+      "description": "API Gateway"
+    }
+  ],
+  "paths": {
+    "/restaurant-service/api/restaurants": {
+      "get": {
+        "summary": "Get all restaurants",
+        "tags": ["Restaurant Service"],
+        "responses": { "200": { "description": "Success" } }
+      }
+    },
+    "/order-service/api/orders": {
+      "get": {
+        "summary": "Get all orders",
+        "tags": ["Order Service"],
+        "responses": { "200": { "description": "Success" } }
+      }
+    },
+    "/delivery-service/api/deliveries": {
+      "get": {
+        "summary": "Get all deliveries",
+        "tags": ["Delivery Service"],
+        "responses": { "200": { "description": "Success" } }
+      }
+    },
+    "/payment-service/api/payments": {
+      "get": {
+        "summary": "Get all payments",
+        "tags": ["Payment Service"],
+        "responses": { "200": { "description": "Success" } }
+      }
+    },
+    "/review-service/api/reviews": {
+      "get": {
+        "summary": "Get all reviews",
+        "tags": ["Review Service"],
+        "responses": { "200": { "description": "Success" } }
+      }
+    },
+    "/loyalty-service/api/loyalty": {
+      "get": {
+        "summary": "Get loyalty points",
+        "tags": ["Loyalty Service"],
+        "responses": { "200": { "description": "Success" } }
+      }
+    }
+  }
+}

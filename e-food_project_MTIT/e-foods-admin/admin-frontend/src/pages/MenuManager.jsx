@@ -38,7 +38,7 @@ export default function MenuManager() {
 
     const fetchRestaurantDetails = async () => {
         try {
-            const res = await axios.get(`http://localhost:5000/api/restaurants/${restaurantId}`);
+            const res = await axios.get(`http://localhost:5010/restaurant-service/api/restaurants/${restaurantId}`);
             setRestaurantName(res.data.name);
         } catch (err) {
             console.error("Failed to fetch restaurant details", err);
@@ -47,7 +47,7 @@ export default function MenuManager() {
 
     const fetchMenuItems = async () => {
         try {
-            const res = await axios.get(`http://localhost:5000/api/menu?restaurantId=${restaurantId}`);
+            const res = await axios.get(`http://localhost:5010/restaurant-service/api/menu?restaurantId=${restaurantId}`);
             setMenuItems(res.data);
             setLoading(false);
         } catch (err) {
@@ -60,7 +60,7 @@ export default function MenuManager() {
         e.stopPropagation();
         if (window.confirm(`Are you sure you want to delete "${item.name}"?`)) {
             try {
-                await axios.delete(`http://localhost:5000/api/menu/${item._id}`);
+                await axios.delete(`http://localhost:5010/restaurant-service/api/menu/${item._id}`);
                 fetchMenuItems();
             } catch (err) {
                 console.error(err);
@@ -181,7 +181,7 @@ export default function MenuManager() {
                                 <div className="relative aspect-video">
                                     {item.image?.[0] ? (
                                         <img
-                                            src={`http://localhost:5000${item.image[0]}`}
+                                            src={`http://localhost:5010/restaurant-service${item.image[0]}`}
                                             alt={item.name}
                                             className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
                                         />
@@ -267,7 +267,7 @@ export default function MenuManager() {
                                 <div className="aspect-square rounded-2xl overflow-hidden border border-slate-800 shadow-2xl">
                                     {selectedItem.image?.[0] ? (
                                         <img
-                                            src={`http://localhost:5000${selectedItem.image[0]}`}
+                                            src={`http://localhost:5010/restaurant-service${selectedItem.image[0]}`}
                                             alt={selectedItem.name}
                                             className="w-full h-full object-cover"
                                         />

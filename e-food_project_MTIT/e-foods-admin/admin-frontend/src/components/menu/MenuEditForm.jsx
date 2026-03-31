@@ -45,7 +45,7 @@ export default function MenuEditForm({ menuItem, onClose, onSuccess }) {
             });
 
             if (menuItem.image?.[0]) {
-                setImagePreview(`http://localhost:5000${menuItem.image[0]}`);
+                setImagePreview(`http://localhost:5010/restaurant-service${menuItem.image[0]}`);
             }
         }
     }, [menuItem]);
@@ -102,7 +102,7 @@ export default function MenuEditForm({ menuItem, onClose, onSuccess }) {
 
             if (image) data.append('image', image);
 
-            await axios.put(`http://localhost:5000/api/menu/${menuItem._id}`, data, {
+            await axios.put(`http://localhost:5010/restaurant-service/api/menu/${menuItem._id}`, data, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
 

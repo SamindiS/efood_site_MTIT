@@ -10,7 +10,7 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const res = await axios.post('http://localhost:5001/api/users/login', form)
+    const res = await axios.post('http://localhost:5010/order-service/api/users/login', form)
     localStorage.setItem('userToken', res.data.token)
     navigate('/profile')
   }

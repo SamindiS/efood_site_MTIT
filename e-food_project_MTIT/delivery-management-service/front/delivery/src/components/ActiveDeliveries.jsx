@@ -62,7 +62,7 @@ const ActiveDeliveries = () => {
         const token = localStorage.getItem('token');
         const headers = token ? { Authorization: `Bearer ${token}` } : {};
 
-        const response = await axios.get('http://localhost:5002/api/drivers/orders', { headers });
+        const response = await axios.get('http://localhost:5010/delivery-service/api/drivers/orders', { headers });
         console.log('API Response:', response.data);
 
         // Check if data is in the expected format
@@ -277,7 +277,7 @@ const ActiveDeliveries = () => {
           const token = localStorage.getItem('token');
           const headers = token ? { Authorization: `Bearer ${token}` } : {};
 
-          await axios.put(`http://localhost:5002/api/orders/${deliveryId}/status`,
+          await axios.put(`http://localhost:5010/delivery-service/api/orders/${deliveryId}/status`,
             { status },
             { headers }
           );
@@ -326,7 +326,7 @@ const ActiveDeliveries = () => {
           const headers = token ? { Authorization: `Bearer ${token}` } : {};
 
           // Call the delete endpoint
-          await axios.delete(`http://localhost:5002/api/drivers/orders/${deliveryId}`, { headers });
+          await axios.delete(`http://localhost:5010/delivery-service/api/drivers/orders/${deliveryId}`, { headers });
           console.log(`Order ${deliveryId} deleted from order microservice database`);
         } catch (apiErr) {
           console.error('Failed to delete order from database:', apiErr);
@@ -346,7 +346,7 @@ const ActiveDeliveries = () => {
         const headers = token ? { Authorization: `Bearer ${token}` } : {};
         const driverId = localStorage.getItem('userId'); // Assuming driver ID is stored here
 
-        await axios.post(`http://localhost:5002/api/orders/${order._id}/claim`,
+        await axios.post(`http://localhost:5010/delivery-service/api/orders/${order._id}/claim`,
           { driverId: driverId || 'current-driver' },
           { headers }
         );

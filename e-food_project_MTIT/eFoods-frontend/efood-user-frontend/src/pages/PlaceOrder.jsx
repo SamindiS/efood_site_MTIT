@@ -23,7 +23,7 @@ const PlaceOrder = () => {
       }
 
       try {
-        const res = await axios.get(`http://localhost:5003/api/payment/placeorder/${user._id}`);
+        const res = await axios.get(`http://localhost:5010/payment-service/api/payment/placeorder/${user._id}`);
         setCheckoutData(res.data);
         setLoading(false);
       } catch (err) {
@@ -44,7 +44,7 @@ const PlaceOrder = () => {
         return;
       }
 
-      const res = await API.post(`http://localhost:5003/api/payment/process`, {
+      const res = await API.post(`http://localhost:5010/payment-service/api/payment/process`, {
         userId: user._id,
         orderId: orderId
       });

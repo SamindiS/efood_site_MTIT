@@ -5,7 +5,7 @@ class LocationService {
     this.watchId = null;
     this.currentLocation = null;
     this.listeners = [];
-    this.apiUrl = process.env.VITE_GOOGLE_MAPS_API_KEY || 'http://localhost:5002/api';
+    this.apiUrl = process.env.VITE_GOOGLE_MAPS_API_KEY || 'http://localhost:5010/delivery-service/api';
   }
 
   // Start tracking driver location

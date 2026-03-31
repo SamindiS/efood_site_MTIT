@@ -78,7 +78,7 @@ export default function MenuForm({ onClose, onSuccess, restaurantId }) {
             data.append('restaurantId', restaurantId);
             if (image) data.append('image', image);
 
-            await axios.post('http://localhost:5000/api/menu/', data, {
+            await axios.post('http://localhost:5010/restaurant-service/api/menu/', data, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
 

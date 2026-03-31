@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5002/api/drivers';
+const API_URL = 'http://localhost:5010/delivery-service/api/drivers';
 
 export const authService = {
   register: async (driverData) => {

@@ -51,7 +51,7 @@ export default function RestaurantEditForm({ onClose, onSuccess }) {
           return
         }
 
-        const response = await axios.get('http://localhost:5000/api/restaurants/me', {
+        const response = await axios.get('http://localhost:5010/restaurant-service/api/restaurants/me', {
           headers: { Authorization: `Bearer ${token}` }
         })
 
@@ -182,7 +182,7 @@ export default function RestaurantEditForm({ onClose, onSuccess }) {
         return
       }
 
-      await axios.put('http://localhost:5000/api/restaurants/update', data, {
+      await axios.put('http://localhost:5010/restaurant-service/api/restaurants/update', data, {
         headers: { 
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${token}`
@@ -389,7 +389,7 @@ export default function RestaurantEditForm({ onClose, onSuccess }) {
                 {imageUrls.map((url, index) => (
                   <div key={index} className="h-16 w-16 relative">
                     <img 
-                      src={`http://localhost:5000${url}`} 
+                      src={`http://localhost:5010/restaurant-service${url}`} 
                       alt={`Restaurant image ${index + 1}`} 
                       className="h-full w-full object-cover rounded"
                     />

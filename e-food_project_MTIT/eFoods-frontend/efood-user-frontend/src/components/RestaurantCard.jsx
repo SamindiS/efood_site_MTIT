@@ -12,7 +12,7 @@
         >
           <div className="relative h-48 overflow-hidden">
             <img 
-              src={restaurant.image?.[0] ? `http://localhost:5000${restaurant.image[0]}` : 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'}
+              src={restaurant.image?.[0] ? `http://localhost:5010/restaurant-service${restaurant.image[0]}` : 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'}
               className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
               alt={restaurant.name}
             />

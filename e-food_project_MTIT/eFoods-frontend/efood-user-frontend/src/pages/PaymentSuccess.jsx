@@ -38,7 +38,7 @@ const PaymentSuccess = () => {
     const fetchSessionDetails = async () => {
       if (sessionId) {
         try {
-          const res = await axios.get(`http://localhost:5003/api/payment/session/${sessionId}`);
+          const res = await axios.get(`http://localhost:5010/payment-service/api/payment/session/${sessionId}`);
           setPaymentDetails(res.data);
         } catch (error) {
           console.error("Failed to fetch payment session:", error);

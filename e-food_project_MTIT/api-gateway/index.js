@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const { createProxyMiddleware } = require('http-proxy-middleware');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 
 const app = express();
 const PORT = 5010;
@@ -62,6 +64,10 @@ services.forEach(({ name, route, target }) => {
         })
     );
 });
+
+// ─── Swagger UI ─────────────────────────────────────────────────
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 
 // ─── Gateway Info Page ──────────────────────────────────────────
 app.get('/', (req, res) => {

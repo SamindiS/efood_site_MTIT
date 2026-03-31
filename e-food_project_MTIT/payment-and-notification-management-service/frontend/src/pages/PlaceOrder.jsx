@@ -20,7 +20,7 @@ const PlaceOrder = ({ userId }) => {
     const fetchCheckoutData = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5003/api/payment/checkout/${userId}`
+          `http://localhost:5010/payment-service/api/payment/checkout/${userId}`
         );
         setCheckoutData(res.data);
         setLoading(false);
@@ -41,7 +41,7 @@ const PlaceOrder = ({ userId }) => {
   const handlePayment = async () => {
     try {
       const orderId = location.state?.orderId;
-      const res = await API.post(`http://localhost:5003/api/payment/process`, {
+      const res = await API.post(`http://localhost:5010/payment-service/api/payment/process`, {
         userId: user._id,
         orderId: orderId
       });

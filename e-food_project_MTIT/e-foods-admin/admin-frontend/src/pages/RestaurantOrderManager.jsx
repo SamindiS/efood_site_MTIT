@@ -30,7 +30,7 @@ const RestaurantOrderManager = () => {
     const fetchRestaurantDetails = async () => {
         try {
             // Reusing the restaurant API if available in utils/api.js, otherwise direct axios
-            const res = await fetch(`http://localhost:5000/api/restaurants/${restaurantId}`).then(r => r.json());
+            const res = await fetch(`http://localhost:5010/restaurant-service/api/restaurants/${restaurantId}`).then(r => r.json());
             setRestaurantName(res.name);
         } catch (err) {
             console.error("Failed to fetch restaurant details", err);

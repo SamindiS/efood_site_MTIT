@@ -16,7 +16,7 @@ export default function RestaurantDetails() {
   const [showActionModal, setShowActionModal] = useState(false);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/menu?restaurantId=${restaurantId}`)
+    axios.get(`http://localhost:5010/restaurant-service/api/menu?restaurantId=${restaurantId}`)
       .then(res => setMenu(res.data));
   }, [restaurantId]);
 
@@ -53,7 +53,7 @@ export default function RestaurantDetails() {
             >
               <div className="relative h-48 overflow-hidden">
                 <img 
-                  src={item.image?.[0] ? `http://localhost:5000${item.image[0]}` : 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80'}
+                  src={item.image?.[0] ? `http://localhost:5010/restaurant-service${item.image[0]}` : 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80'}
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                   alt={item.name}
                 />
@@ -85,7 +85,7 @@ export default function RestaurantDetails() {
               <div className="mb-6">
                 <div className="relative h-56 overflow-hidden rounded-lg mb-4">
                   <img 
-                    src={selected.image?.[0] ? `http://localhost:5000${selected.image[0]}` : 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80'}
+                    src={selected.image?.[0] ? `http://localhost:5010/restaurant-service${selected.image[0]}` : 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80'}
                     className="w-full h-full object-cover"
                     alt={selected.name}
                   />

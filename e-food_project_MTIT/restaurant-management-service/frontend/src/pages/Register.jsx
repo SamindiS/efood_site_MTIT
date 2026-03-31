@@ -66,7 +66,7 @@ export default function RegisterRestaurant() {
         data.append('images', file)
       })
 
-      await axios.post('http://localhost:5000/api/restaurants/register', data, {
+      await axios.post('http://localhost:5010/restaurant-service/api/restaurants/register', data, {
         headers: { 'Content-Type': 'multipart/form-data' }
       })
 
