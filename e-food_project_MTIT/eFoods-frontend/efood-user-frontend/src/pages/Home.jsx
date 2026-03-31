@@ -16,6 +16,8 @@ import samindi from '../assets/samindi.png';
 import sandeepa from '../assets/sandeepa.png';
 import hasini from '../assets/hasini.png';
 import geethika from '../assets/geethika.png';
+import keerthana from '../assets/keerthana.jpg';
+import harshi from '../assets/harshi.jpg';
 import logo from '../assets/efoods.png';
 import google from '../assets/googlePlay.png';
 import apple from '../assets/appStore.png';
@@ -274,15 +276,15 @@ export default function Home() {
               name="K.G.G.K.Senavirathna"
             />
             <Testimonial
-              image={samindi}
+              image={keerthana}
               text="The review system is very transparent. It helps me choose the best restaurants Every time!"
-              name="M.H Samindi"
+              name="Keerthana S"
             />
 
             <Testimonial
-              image={samindi}
+              image={harshi}
               text="Best food delivery platform I have ever used. Highly recommended for everyone."
-              name="Samindi Sankalpani"
+              name="Harshi M"
             />
           </div>
         </div>

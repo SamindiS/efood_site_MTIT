@@ -5,6 +5,8 @@ import samindi from '../assets/samindi.png';
 import sandeepa from '../assets/sandeepa.png';
 import hasini from '../assets/hasini.png';
 import geethika from '../assets/geethika.png';
+import keerthana from '../assets/keerthana.jpg';
+import harshi from '../assets/harshi.jpg';
 
 import UserNavBar from '../components/userNavBar';
 import Footer from '../components/Footer';
@@ -196,12 +198,12 @@ const AboutUs = () => {
               {
                 name: "S Keerthana",
                 role: "Quality Assurance & Review Lead",
-                image: hasini,
+                image: keerthana,
               },
               {
                 name: "M Harshika",
                 role: "Loyalty & Promotions Manager",
-                image: samindi,
+                image: harshi,
               },
             ].map((member, index) => (
               <div key={index} className="text-center group">
