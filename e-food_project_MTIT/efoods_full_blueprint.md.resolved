@@ -1,0 +1,136 @@
+# 🍔 eFoods — Full System Blueprint (From Scratch)
+
+This document provides a complete technical map for building the **eFoods** platform, a cloud-native food ordering and delivery system using a **Microservices Architecture**.
+
+---
+
+## 🏗️ System Architecture Overview
+
+The system consists of **6 independent backends** communicating via REST APIs (with potential for message queues like RabbitMQ as it scales) and **2 React-based frontends**.
+
+```mermaid
+graph TD
+    A[Customer Web App\nReact + Vite] --> B[Restaurant Service]
+    A --> C[Order Service]
+    A --> D[Payment Service]
+    E[Driver Web App\nReact + Vite] --> F[Delivery Service]
+    A --> G[Reviews Service]
+    A --> H[Loyalty Service]
+
+    subgraph "Main Persistence Cluster (MongoDB Atlas)"
+        B_DB[(Restaurant DB)]
+        C_DB[(Order DB)]
+        F_DB[(Delivery DB)]
+        D_DB[(Payment DB)]
+        G_DB[(Reviews DB)]
+        H_DB[(Loyalty DB)]
+    end
+
+    B --- B_DB
+    C --- C_DB
+    F --- F_DB
+    D --- D_DB
+    G --- G_DB
+    H --- H_DB
+```
+
+---
+
+## 🚦 System Port Map
+
+To run all parts simultaneously on one machine, each service is assigned a unique port:
+
+| Component | Port | Description |
+|---|---|---|
+| **Restaurant Management** | `5000` | Menu, images, restaurant info |
+| **Order Management** | `5001` | Cart, Users, Order placement |
+| **Delivery Management** | `5002` | Driver login, location, order claiming |
+| **Payment & Notifications**| `5003` | Stripe integration, SMS, Email |
+| **Reviews & Ratings** | `5004` | Customer feedback, star ratings |
+| **Loyalty & Promotions** | `5005` | Discount coupons, points system |
+| **Customer Web App** | `5173` | Main ordering portal |
+| **Driver Web App** | `5174` | Driver dashboard & map tracking |
+
+---
+
+## 📦 Microservce Details (The "6 Core Units")
+
+### 1. 🍽️ Restaurant Management Service (Port 5000)
+*   **Purpose:** Manages the menu and restaurant profiles.
+*   **Key Tech:** Express, MongoDB, **Multer** (for food image uploads).
+*   **Models:** [Restaurant.js](file:///d:/GitHub/efoods-online-food-ordering-and-delivery-management-system/restaurant-management-service-neranda/backend/models/Restaurant.js), [MenuItem.js](file:///d:/GitHub/efoods-online-food-ordering-and-delivery-management-system/restaurant-management-service-neranda/backend/models/MenuItem.js).
+*   **Key Endpoints:**
+    *   `GET /api/restaurants` — List all restaurants.
+    *   `POST /api/menu` — Add a new food item.
+    *   `GET /api/menu?restaurantId=...` — Get menu for one spot.
+
+### 2. 🛒 Order Management Service (Port 5001)
+*   **Purpose:** The core engine for users and their transactions.
+*   **Key Tech:** Express, MongoDB, **JWT** (Authentication).
+*   **Models:** [User.js](file:///d:/GitHub/efoods-online-food-ordering-and-delivery-management-system/order-management-service-sasin/backend/models/User.js), [Cart.js](file:///d:/GitHub/efoods-online-food-ordering-and-delivery-management-system/order-management-service-sasin/backend/models/Cart.js), [Order.js](file:///d:/GitHub/efoods-online-food-ordering-and-delivery-management-system/order-management-service-sasin/backend/models/Order.js).
+*   **Key Endpoints:**
+    *   `POST /api/auth/register` — Create customer account.
+    *   `POST /api/cart` — Add item to basket.
+    *   `POST /api/orders` — Place the actual order.
+
+### 3. 🚚 Delivery Management Service (Port 5002)
+*   **Purpose:** For riders to manage their jobs and update location.
+*   **Key Tech:** Express, MongoDB, **Google Maps API**.
+*   **Models:** `Driver.js`, `ActiveDelivery.js`.
+*   **Key Endpoints:**
+    *   `GET /api/drivers/available-orders` — See what needs delivering.
+    *   `POST /api/drivers/claim-order` — Grab a delivery job.
+    *   `PUT /api/drivers/location` — Send current GPS coordinates.
+
+### 4. 💳 Payment & Notification Service (Port 5003)
+*   **Purpose:** Secure money handling and updates.
+*   **Key Tech:** **Stripe API**, **Twilio** (SMS), **Nodemailer** (Email).
+*   **Models:** [Payment.js](file:///d:/GitHub/efoods-online-food-ordering-and-delivery-management-system/payment-and-notification-management-service-ishara/backend/models/Payment.js) (Transaction history).
+*   **Key Endpoints:**
+    *   `POST /api/payment/checkout` — Create Stripe session.
+    *   `POST /api/payment/webhook` — Automate order "Paid" status.
+
+### 5. ⭐ Reviews & Ratings Service (Port 5004)
+*   **Purpose:** Manages transparency and trust.
+*   **Key Tech:** Express, MongoDB.
+*   **Models:** `Review.js`.
+*   **Key Endpoints:**
+    *   `POST /api/reviews` — Rate a restaurant (1-5 stars).
+    *   `GET /api/reviews/:restaurantId` — Show user comments.
+
+### 6. 🎁 Loyalty & Promotions Service (Port 5005)
+*   **Purpose:** Marketing and user retention.
+*   **Key Tech:** Express, MongoDB.
+*   **Models:** `Coupon.js`, `UserPoints.js`.
+*   **Key Endpoints:**
+    *   `POST /api/promo/validate` — Apply code like `FIRST50`.
+    *   `POST /api/loyalty/points` — Earn points on purchase.
+
+---
+
+## 💻 Frontend Applications
+
+### 👤 Customer Web App (React + Vite)
+*   **Focus:** Clean, fast browsing experience.
+*   **Key Pages:**
+    *   [Home.jsx](file:///d:/GitHub/efoods-online-food-ordering-and-delivery-management-system/eFoods-frontend/efood-user-frontend/src/pages/Home.jsx) (Hero search)
+    *   [RestaurantDetails.jsx](file:///d:/GitHub/efoods-online-food-ordering-and-delivery-management-system/eFoods-frontend/efood-user-frontend/src/pages/RestaurantDetails.jsx) (Menu + Cart)
+    *   [Checkout.jsx](file:///d:/GitHub/efoods-online-food-ordering-and-delivery-management-system/eFoods-frontend/efood-user-frontend/src/pages/Checkout.jsx) (Payment integration)
+    *   [Profile.jsx](file:///d:/GitHub/efoods-online-food-ordering-and-delivery-management-system/eFoods-frontend/efood-user-frontend/src/pages/Profile.jsx) (Order history)
+
+### 🚗 Driver Web App (React + Vite)
+*   **Focus:** Utility and clear navigation.
+*   **Key Pages:**
+    *   `AvailableJobs.jsx` (List of nearby orders)
+    *   `DeliveryMap.jsx` (Google Maps directions)
+    *   `Earnings.jsx` (How much they made today)
+
+---
+
+## 🛠️ Implementation Phases
+
+1.  **Phase 1 — Data Isolation:** Create 6 separate databases in MongoDB Atlas.
+2.  **Phase 2 — Core Services:** Build Restaurant and Order services first.
+3.  **Phase 3 — The Frontends:** Connect the Customer app to the core services.
+4.  **Phase 4 — Logic & Support:** Add Delivery, Payments, and then the minor services (Reviews/Loyalty).
+5.  **Phase 5 — Dockerization:** Wrap each folder in a `Dockerfile` for easy deployment.
