@@ -13,6 +13,7 @@ import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
 import Footer from './components/Footer';
 import LoyaltyRewards from './pages/LoyaltyRewards';
+import Review from './pages/Review';
 
 
 // 👇 Stripe
@@ -137,6 +138,16 @@ const router = createBrowserRouter([
               <PaymentFailed />
             </StripeWrapper>
           </ProtectedRoute>
+        ),
+      },
+      {
+        path: 'review',
+        element: (
+          <>
+            <UserNavBar />
+            <Review />
+            <Footer />
+          </>
         ),
       },
 

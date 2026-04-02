@@ -3,7 +3,7 @@ exports.createOrder = async (req, res) => {
   const { orderDB, restaurantDB } = req.app.locals.dbs;
   const Cart = require('../models/Cart')(orderDB);
   const Order = require('../models/Order')(orderDB);
-  const MenuItem = require('../../../restaurant-management-service-neranda/backend/models/MenuItem')(restaurantDB);
+  const MenuItem = require('../../../restaurant-management-service/backend/models/MenuItem')(restaurantDB);
 
   const { userId, shippingInfo } = req.body;
   try {
@@ -146,7 +146,7 @@ exports.getRestaurantOrders = async (req, res) => {
   const { orderDB, restaurantDB } = req.app.locals.dbs;
   const Order = require('../models/Order')(orderDB);
   const User = require('../models/User')(orderDB);
-  const MenuItem = require('../../../restaurant-management-service-neranda/backend/models/MenuItem')(restaurantDB);
+  const MenuItem = require('../../../restaurant-management-service/backend/models/MenuItem')(restaurantDB);
 
   try {
     const { restaurantId } = req.params;

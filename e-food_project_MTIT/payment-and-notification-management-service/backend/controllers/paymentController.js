@@ -10,19 +10,19 @@ exports.getCheckoutInfo = async (req, res) => {
   const restaurantDB = req.app.locals.dbs.restaurantDB;
 
   const Order =
-    require("../../../order-management-service-sasin/backend/models/Order")(
+    require("../../../order-management-service/backend/models/Order")(
       orderDB
     );
   const User =
-    require("../../../order-management-service-sasin/backend/models/User")(
+    require("../../../order-management-service/backend/models/User")(
       orderDB
     );
   const Restaurant =
-    require("../../../restaurant-management-service-neranda/backend/models/Restaurant")(
+    require("../../../restaurant-management-service/backend/models/Restaurant")(
       restaurantDB
     );
   const MenuItem =
-    require("../../../restaurant-management-service-neranda/backend/models/MenuItem")(
+    require("../../../restaurant-management-service/backend/models/MenuItem")(
       restaurantDB
     );
 
@@ -92,7 +92,7 @@ exports.createCheckoutSession = async (req, res) => {
   try {
     // Fetch order details from your database
     const Order =
-      require("../../../order-management-service-sasin/backend/models/Order")(
+      require("../../../order-management-service/backend/models/Order")(
         req.app.locals.dbs.orderDB
       );
     const order = await Order.findById(orderId);
@@ -159,7 +159,7 @@ exports.handleWebhook = async (req, res) => {
       // Step 3: Validate the Order ID
       const orderDB = req.app.locals.dbs.orderDB;
       const Order =
-        require("../../../order-management-service-sasin/backend/models/Order")(
+        require("../../../order-management-service/backend/models/Order")(
           orderDB
         );
 

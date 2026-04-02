@@ -8,7 +8,10 @@ const app = express();
 const PORT = 5010;
 
 // Enable CORS
-app.use(cors());
+app.use(cors({
+    origin: true,
+    credentials: true,
+}));
 
 // ─── Service Registry ───────────────────────────────────────────
 const services = [

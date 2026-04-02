@@ -43,8 +43,8 @@ exports.addItemToCart = async (req, res) => {
 exports.getCartItems = async (req, res) => {
     const { orderDB, restaurantDB } = req.app.locals.dbs;
     const Cart = require('../models/Cart')(orderDB);
-    const Restaurant = require('../../../restaurant-management-service-neranda/backend/models/Restaurant')(restaurantDB);
-    const MenuItem = require('../../../restaurant-management-service-neranda/backend/models/MenuItem')(restaurantDB);
+    const Restaurant = require('../../../restaurant-management-service/backend/models/Restaurant')(restaurantDB);
+    const MenuItem = require('../../../restaurant-management-service/backend/models/MenuItem')(restaurantDB);
 
     try {
         const cart = await Cart.findOne({ userId: req.params.userId });

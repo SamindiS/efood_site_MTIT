@@ -60,12 +60,7 @@ const UserNavBar = () => {
             <NavLink to="/rewards">Rewards</NavLink>
             <NavLink to="/aboutus">About Us</NavLink>
             <NavLink to="/contactus">Contact Us</NavLink>
-            <a
-              href="http://localhost:5176"
-              className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#255F38] transition-colors"
-            >
-              Feedbacks
-            </a>
+            <NavLink to="/review">Feedbacks</NavLink>
           </div>
 
           {/* Right Side: Auth - Desktop */}
@@ -171,12 +166,12 @@ const UserNavBar = () => {
             >
               Contact Us
             </Link>
-            <a
-              href="http://localhost:5176"
+            <Link
+              to="/review"
               className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[#1F7D53] hover:bg-gray-50"
             >
               Feedbacks
-            </a>
+            </Link>
           </div>
 
           {/* Auth links for mobile */}
