@@ -1,137 +1,102 @@
-# 🍔 Cloud-Native Food Ordering & Delivery System
+# 🍔 eFoods: Cloud-Native Food Ordering & Delivery System
 
-This readme.txt explains how to deploy the Food Ordering & Delivery Platform developed using Microservices Architecture with Docker, Kubernetes, and React.js frontend.
-
-**Cloud-Native Food Ordering & Delivery System** is a robust, scalable application built using a **Microservice Architecture** designed to streamline the end-to-end food ordering process. This system enables **restaurants**, **customers**, and **delivery agents** to interact seamlessly through independently deployable services.
-
-Built using the **MERN stack** (MongoDB, Express.js, React.js, Node.js) and fully **Dockerized** for cloud-native deployments, each microservice (e.g., Authentication, Menu, Orders, Payments, Notifications, Delivery) functions independently, allowing for high **fault tolerance** and **easy maintenance**.
-
-### 🚀 Key Features
-- Modular microservices architecture
-- Dynamic menu and restaurant management
-- Real-time order status and tracking
-- Multiple payment gateway integration
-- User role management (Admin, Customer, Restaurant, Rider)
-- API Gateway with service discovery
-- Docker & container orchestration support
-
-This repository offers a modern, production-ready foundation to build full-featured cloud-native food delivery systems with speed, efficiency, and flexibility in mind.
+A robust, scalable microservices architecture built with the **MERN stack** (MongoDB, Express.js, React.js, Node.js). This platform provides a seamless experience for customers, restaurants, and delivery agents to interact through independently deployable services, all unified by a central **API Gateway**.
 
 ---
 
-## Prerequisites
+## 🚀 Key Features
 
-- Node.js and npm installed
-- Docker and Docker Compose installed
-- Kubernetes (minikube or any cluster) installed
-- Git installed
-
----
-
-## Backend Microservices
-
-1. Clone the repository:
-
-   git clone https://github.com/SE-3Y1S-Microservices-Group-Project/efoods-online-food-ordering-and-delivery-management-system
-
-2. Navigate to the project folder:
-
-   cd efoods-online-food-ordering-and-delivery-management-system
-
-3. Each services (Restaurant Management, Order Management, Delivery Management, Payment Management) has its own folders.
-
-4. Build Docker images for each service:
-
-   docker build -t restaurant-management-service-neranda ./restaurant-management-service-neranda
-   docker build -t payment-and-notification-management-service-ishara ./payment-and-notification-management-service-ishara
-   docker build -t order-management-service-sasin ./order-management-service-sasin
-   docker build -t delivery-management-service-buwaneka ./delivery-management-service-buwaneka
-
-5. Apply Kubernetes configuration files:
-
-   kubectl apply -f k8s/restaurant-management-service-neranda.yaml
-   kubectl apply -f k8s/payment-and-notification-management-service-ishara.yaml
-   kubectl apply -f k8s/order-management-service-sasin.yaml
-   kubectl apply -f k8s/delivery-management-service-buwaneka.yaml
-
-6. Set up Database Services (MongoDB) by applying the relevant deployment YAMLs:
-
-   kubectl apply -f k8s/database-deployment.yaml
-
-7. Expose services using LoadBalancer.
+*   **Microservices Architecture**: Modular services for Auth, Menu, Orders, Payments, and Delivery.
+*   **Centralized API Gateway**: Unified entry point on port **5010** for all frontend-to-backend communication.
+*   **Integrated Documentation**: Access all microservice API specs from a single **Swagger UI** dashboard.
+*   **Built-in Feedback System**: Integrated review and rating platform accessible at `/review`.
+*   **Modern Admin Dashboard**: Powerful control panel for system-wide configuration.
+*   **Delivery Driver Portal**: Real-time order management for riders.
 
 ---
 
-## Frontend (React Web Client)
+## 🛠️ Prerequisites
 
-1. Navigate to the client folder:
-
-   cd eFoods-frontend
-
-2. Install dependencies:
-
-   npm install
-
-3. Start the frontend locally:
-
-   npm run dev
-
-(build a production version:)
-
-   npm run build
-
-4. Dockerize the frontend:
-
-   docker build -t eFoods-frontend ./eFoods-frontend
-
-5. Deploy frontend via Kubernetes:
-
-   kubectl apply -f k8s/eFoods-frontend.yaml
+*   **Node.js & npm**: [Download Node.js](https://nodejs.org/) (Version 18+ recommended)
+*   **Git**: [Download Git](https://git-scm.com/)
+*   **MongoDB Atlas**: Active cluster for database storage.
 
 ---
 
-## Environment Variables
+## 🏗️ Getting Started (Local Setup)
 
-Create a `.env` file in each service folder and client folder with necessary variables such as:
+To run the entire ecosystem locally, you will need to start the **API Gateway**, all **Backend Services**, and the **Frontends** in separate terminal windows.
 
-- DB_HOST
-- DB_USER
-- DB_PASSWORD
-- API_GATEWAY_URL
-- Payment gateway keys (e.g., Stripe, PayHere)
+### 1. Unified API Access (The Gateway)
+The Gateway routes all requests to the correct microservice.
+*   **Directory**: `api-gateway`
+*   **Command**: `npm run dev`
+*   **Public URL**: `http://localhost:5010`
 
----
-
-## Payment Integration Setup
-
-- Configure payment gateway credentials (Stripe/PayHere/FriMi) in the environment variables.
-- For sandbox testing, use provided test keys.
+👉 **Centralized API Docs (Swagger)**: **[http://localhost:5010/api-docs](http://localhost:5010/api-docs)**
 
 ---
 
-## SMS and Email Notifications
+### 2. Backend Microservices (Core Logic)
 
-- Sign up for SMS/Email service (e.g., Twilio, SendGrid).
-- Set API keys in environment variables.
-
----
-
-## Accessing the Platform
-
-- Open browser and access frontend via LoadBalancer IP / Ingress domain.
-- Customers can browse restaurants, order food, track deliveries.
-
----
-
-## Additional Notes
-
-- Use `kubectl get pods`, `kubectl get services` to monitor deployment.
-- In case of issues, check pod logs using:
-
-   kubectl logs [pod-name]
+| Service | Port | Directory | Command |
+| :--- | :--- | :--- | :--- |
+| **Restaurant Service** | 5000 | `restaurant-management-service/backend` | `npm run dev` |
+| **Order Service** | 5001 | `order-management-service/backend` | `npm run dev` |
+| **Delivery Service** | 5002 | `delivery-management-service/back` | `npm run dev` |
+| **Payment Service** | 5003 | `payment-and-notification-management-service/backend` | `npm run dev` |
+| **Review Service** | 5004 | `review-management` | `node index.js` |
+| **Loyalty Service** | 5005 | `Loyalty-management` | `node index.js` |
 
 ---
 
+### 3. Frontend Applications
 
+| Application | Description | Directory |
+| :--- | :--- | :--- |
+| **Main User Frontend** | E-commerce platform for customers | `eFoods-frontend/efood-user-frontend` |
+| **Admin Dashboard** | Central control panel for admins | `e-foods-admin/admin-frontend` |
+| **Delivery Driver App** | Portal for riders to claim deliveries | `delivery-management-service/front/delivery` |
 
-🛠️ Contributions welcome. Let’s build the future of food delivery tech!
+**To run any frontend:**
+```cmd
+cd <directory>
+npm install
+npm run dev
+```
+
+---
+
+## 🔑 Environment Configuration
+
+Each service requires a `.env` file in its folder. Ensure the following variables are configured:
+
+```env
+# Database URIs
+orderServiceDB_MONGO_URI=mongodb+srv://...
+restaurantServiceDB_MONGO_URI=mongodb+srv://...
+# Auth & Security
+JWT_SECRET=your_secret_key
+# Gateway Routing
+API_GATEWAY_URL=http://localhost:5010
+```
+
+---
+
+## 💡 Troubleshooting & Common Issues
+
+### 1. Port Conflicts (`EADDRINUSE`)
+If a service fails to start with `address already in use`, it means another process is still using that port.
+*   **Solution**: Kill the process on the port using the terminal:
+    ```powershell
+    netstat -ano | findstr :<PORT_NUMBER>
+    taskkill /F /PID <PID_FROM_NETSTAT>
+    ```
+
+### 2. MongoDB Connection Timeout
+If you see `ETIMEOUT` or `queryTxt` errors:
+*   **Solution**: Ensure your current IP address is whitelisted in your **MongoDB Atlas** Project settings under "Network Access".
+
+---
+
+🛠️ Developed as a group project for **MTIT Microservices Architecture**. Let's build the future of food delivery!
